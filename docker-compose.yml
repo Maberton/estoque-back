@@ -8,15 +8,12 @@ services:
     depends_on: 
       - mysql
     networks: 
-      - frontend
       - backend
     environment:
       - MYSQL_HOST=localhost
       - MYSQL_USER=aplicacao
       - MYSQL_PASS=[Lk.YU1Qx/vJjPCb
       - MYSQL_DB=anani
-    volumes:
-      - ./www/:var/www/html/
     ports:
       - "30001:8005"
     container_name: estoque-back-node
