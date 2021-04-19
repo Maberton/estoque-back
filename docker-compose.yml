@@ -6,7 +6,7 @@ services:
     image:
       estoque/estoque-back
     depends_on: 
-      - mysql2
+      - mysql
     networks: 
       - frontend
       - backend
@@ -33,7 +33,7 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:4.7
     depends_on: 
-      - mysql2
+      - mysql
     networks: 
       - backend
     ports:
