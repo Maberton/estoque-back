@@ -1,0 +1,51 @@
+version: "3.2"
+services:
+  nodejs:
+    build:
+      context: .
+    image:
+      estoque/estoque-back
+    depends_on: 
+      - mysql2
+    networks: 
+      - frontend
+      - backend
+    environment:
+      - MYSQL_HOST=localhost
+      - MYSQL_USER=aplicacao
+      - MYSQL_PASS=[Lk.YU1Qx/vJjPCb
+      - MYSQL_DB=anani
+    volumes:
+      - ./www/:var/www/html/
+    ports:
+      - "30001:8005"
+    container_name: estoque-back
+  mysql:
+    image: mysql:5.7
+    networks: 
+      - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=anani12345
+      - MYSQL_USER=aplicacao
+      - MYSQL_PASS=[Lk.YU1Qx/vJjPCb
+      - MYSQL_DATABASE=anani
+    container_name: estoque-back
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.7
+    depends_on: 
+      - mysql2
+    networks: 
+      - backend
+    ports:
+      - "30002:80"
+    environment:
+      - PMA_HOST=localhost
+      - PMA_PORT=3306
+    volumes:
+      - /sessions
+    container_name: estoque-back
+networks: 
+  frontend:
+  backend:
+    
+  
