@@ -14,7 +14,7 @@ module.exports = {
   },
 
   staging: {
-    client: 'mysql',
+    client: 'mysql2',
     connection: {
       database: 'anani',
       user:     'aplicacao',
@@ -31,7 +31,7 @@ module.exports = {
   },
 
   production: {
-    client: 'mysql',
+    client: 'mysql2',
     connection: {
       database: 'anani',
       user:     'aplicacao',
